@@ -1,0 +1,84 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+/*------------------------------------------------*/
+
+html {
+	padding: 25px 0;
+  }
+body {
+	width: 800px;
+	padding: 20px;
+	margin: 0 auto;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgb(0,0,0);
+	font-family: 'Arial Black', serif;
+}
+h1 {
+	font-size: 3em;
+}
+p {
+	font-family: "Palatino Linotype", Baskerville, serif;
+	font-size: 1.25em;
+	
+	line-height: 150%;
+	margin-top: 5px;
+	margin-left: 20px;
+}
+.button_bar {
+	width: 346px;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 15px;
+}
+#incr, #decr {
+	width: 150px;
+	height: 30px;
+	margin: 10px;
+	box-shadow: 0 0 10px rgb(0,0,0);
+	border-radius: 5px;
+}
+
+.main p:nth-child(n) {
+	font-size: calc(n - 10%);
+}
+.main p:nth-child(even) {
+	color: red;
+}
+.main p:nth-child(odd) {
+	color: green;
+}
+.main p:nth-child(2n + 6) {
+	text-decoration: underline;
+}
+.main p:nth-child(-n + 4) {
+	text-transform: lowercase;
+}
+.main p:nth-child(n + 5) {
+	text-transform: uppercase;
+}
