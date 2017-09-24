@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task04</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="widget">
+    <h5>Event name</h5>
+    <p>Mel's birthday celebration</p>
+    <hr>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <h5>From</h5>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input type="date" name="dateFrom" value="2017-09-28" min="2017-09-24" max="2018-09-24"></td>
+          <td><input type="time" name="timeFrom" value="17:15:00"></td>
+        </tr>
+        <tr>
+          <td class="caution">Date occurs in the past</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <h5>To</h5>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input type="date" name="dateTo" value="2017-09-28" min="2017-09-24" max="2018-09-24"></td>
+          <td><input type="time" name="timeTo" value="23:15:00"></td>
+        </tr>
+        <tr>
+          <td class="caution">Date occurs in the past</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <h5>Description</h5>
+    <p>Come help celebrate Mel's birthday with dinner, drinks and putt-putt</p>
+
+    <div class="frame">
+      <a href="frames/FrameDone.html" target="oldFrame"><img src="img/button.gif"></a>
+
+      <iframe src="frames/FrameOutput.html" name="oldFrame" width="100px" height="100px"></iframe>
+
+    </div>
+  </div>
+</body>
+
+</html>

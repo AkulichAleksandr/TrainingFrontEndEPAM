@@ -1,0 +1,86 @@
+/* сброс стилей браузера */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+/* конец кода сброса стилей браузера */
+
+* {
+	font-family: Helvetica, sans-serif;
+	font-size: 1.1em;
+}
+.widget {
+	width: 350px;
+	height: 450px;
+	margin: 20px auto;
+	background-color: rgb(250,250,250);
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgb(160,160,160);
+	padding: 10px;
+}
+hr {
+	border: none;
+	height: 1px;
+	background-color: rgb(220,220,220);
+}
+h5 {
+	color: rgb(160,160,160); 
+	padding: 5px 0; 
+	font-size: .8em;
+	font-weight: normal;
+}
+input {
+	border: none;
+	border-bottom: 2px solid rgb(255,0,0);
+	background-color: rgb(250,250,250);
+	font-size: 1.5em;
+	padding-right: 10px;
+	padding-left: 3px;
+	width: 90%;
+}
+.caution {
+	font-size: .8em; 
+	color: rgb(255,0,0);
+	padding: 5px 0 8px 0;
+}
+iframe {
+	margin: auto 20px;
+	border: 1px solid rgb(220,220,220);
+	border-radius: 5px;
+}
+.frame {
+	position: relative;
+	margin: 20px;
+}
+img {
+	margin: auto 20px;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
