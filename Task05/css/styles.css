@@ -1,0 +1,154 @@
+/* сброс стилей браузера */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+* {
+	box-sizing: border-box;
+}
+/* конец кода сброса стилей браузера */
+
+.wrapper {
+	width: 100%;
+	min-width: 300px;
+	height: 560px;
+	margin: 20px auto;
+	border: 1px solid rgb(236,236,236);
+	font-family: Arial, Helvetica, sans-serif;
+}
+.backgroundDiv {
+	position: relative;
+	background: url(../img/smallback.png) center center;
+	height: 200px;
+}
+.logo {
+	width: 300px;
+	background-color: rgb(240,240,240);
+	box-shadow: 0 0 3px black;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: .9;	
+}
+.logo > p {
+	margin: 5px;
+	padding: 10px;
+	border: 2px solid black;
+	font-family: mistral;
+	font-size: 42px;
+	text-align: center;
+}
+.lightDiv, .darkDiv{
+	position: relative;
+	height: 116px;
+	margin: 8px;
+	border: 1px solid rgb(236,236,236);
+	background-color: rgb(255,255,255);
+	border-radius: 3px;
+}
+.darkDiv {
+	background-color: rgb(51,51,51);
+}
+input[type="button"] {
+	position: absolute;
+	color: white;
+	border: none;
+	border-radius: 3px;
+}
+input[value="Pink Button"] {
+	top: 20px;
+	left: 26px;
+	background-color: rgb(232,78,168);
+	font-size: 14px;
+	height: 24px;
+	width: 110px;
+}
+input[value="Green Button"] {
+	top: 28px;
+	left: 138px;
+	background-color: rgb(168,203,62);
+	font-size: 6px;
+	height: 16px;
+	width: 60px;
+}
+input[value="Blue Button"] {
+	top: 54px;
+	left: 26px;
+	background-color: rgb(82,153,233);
+	font-size: 6px;
+	height: 16px;
+	width: 56px;
+}
+input[value="Red Button"] {
+	top: 54px;
+	left: 84px;
+	background-color: rgb(234,76,76);
+	font-size: 6px;
+	height: 16px;
+	width: 56px;
+}
+input[value="Orange Button"] {
+	top: 80px;
+	left: 26px;
+	background-color: rgb(255,111,31);
+	font-size: 6px;
+	height: 16px;
+	width: 64px;
+}
+input[value="Yellow Button"] {
+	top: 80px;
+	left: 92px;
+	background-color: rgb(255,191,53);
+	font-size: 6px;
+	height: 16px;
+	width: 64px;
+}
+.darkDiv input[value="Blue Button"] {
+	top: 58px;
+	left: 26px;
+	height: 12px;
+	width: 46px;
+}
+.darkDiv input[value="Red Button"] {
+	top: 56px;
+	left: 76px;
+	height: 16px;
+	width: 52px;
+}
+.darkDiv input[value="Orange Button"] {
+	top: 84px;
+	left: 26px;
+	height: 10px;
+	width: 48px;
+}
+.darkDiv input[value="Yellow Button"] {
+	top: 82px;
+	left: 78px;
+	height: 12px;
+	width: 52px;
+}
