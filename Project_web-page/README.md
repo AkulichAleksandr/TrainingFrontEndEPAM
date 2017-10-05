@@ -1,4 +1,4 @@
-###HTML/CSS project.
+### HTML/CSS project.
 The web-page was created according to BEM methodology. It uses adaptive/responsive design.
 *****
 ### Naming convention
