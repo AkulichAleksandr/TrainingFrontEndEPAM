@@ -1,0 +1,66 @@
+@media (max-width: 960px) {
+    .ak-menu {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .ak-menu__line {
+        display: block;
+        padding: 5px 10px;
+    }
+}
+@media (max-width: 816px) {
+    .ak-menu {
+        display: flex;
+        flex-flow: column wrap;
+    }
+    .ak-menu__line {
+        display: block;
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    .ak-menu__line:hover {
+        font-size: 20px;
+    }
+    .ak-header__announcement {
+        position: static;
+    }
+    .ak-header__menu {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+    }
+}
+@media (max-width: 640px) {
+    .ak-description__caption-title {
+        font-size: 28px;
+        line-height: 1;
+    }
+    .ak-term__date {
+        font-size: 20px;
+    }
+    .ak-description__caption-text_font_m {
+        font-size: 16px;
+    }
+}
+
+
+/*
+ak-header
+ak-about
+ak-service
+ak-experience
+ak-education
+ak-quotes
+ak-contact
+ak-footer
+
+ak-logo
+ak-menu
+ak-description
+ak-button
+ak-skills-diagram
+ak-term
+ak-form
+ak-adress
+ak-social-icon 
+*/
