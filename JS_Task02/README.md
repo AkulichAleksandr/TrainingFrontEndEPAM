@@ -1,0 +1,1 @@
+### The calculation of the Factorial number, Fibonacci Sequence and Prime Number
