@@ -8,18 +8,18 @@ function factorial(n) {
     }
     return res;
 }
-console.log(num + '! = ' + factorial(num));
+console.log(~~num + '! = ' + factorial(num));
 }
 
 fibonacciSequence.onclick = function() {
     var num = +prompt('Enter the number more than 1', 15);
-    num = (num >= 2)? num: 2;
+    num = (num >= 1)? num: 1;
 function fibonacciSequence(n) {
-    var arr = [1, 1], a = arr[0], b = arr[1], res = 0;
+    var arr = [0, 1], currentNum = arr[0], nextNum = arr[1], res = 0;
     for (var i = 2; i < n; i++) {
-        res = a + b;
-        a = b;
-        b = res;
+        res = currentNum + nextNum;
+        currentNum = nextNum;
+        nextNum = res;
         arr.push(res);
     }
     return arr;
@@ -32,12 +32,11 @@ primeNum.onclick = function() {
     num = (num > 1)? num: 2;
 function primeNum(n) {
     var arr = [];
-    again:
     for (var i = 2; i <= n; i++) {
       for (var j = 2; j < i; j++) {
-        if (i % j == 0) continue again;
+        if (i % j === 0) break;
       }
-      arr.push(i);
+      if (i === j) arr.push(i);
     }
     return arr;
 }
