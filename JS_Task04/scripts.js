@@ -20,7 +20,7 @@ Vehicle.prototype.switchOffEngine = function() {
 
 //-----OffRoadCar-----
 function OffRoadCar() {
-    Vehicle.prototype.constructor.apply(this, arguments);
+    Vehicle.apply(this, arguments);
 }
 
 OffRoadCar.prototype = Object.create(Vehicle.prototype);
@@ -42,7 +42,7 @@ OffRoadCar.prototype.stopTrophyReid = function() {
 
 //-----SaloonCar-----
 function SaloonCar() {
-    Vehicle.prototype.constructor.apply(this, arguments);
+    Vehicle.apply(this, arguments);
 } 
 
 SaloonCar.prototype = Object.create(Vehicle.prototype);
@@ -64,7 +64,7 @@ SaloonCar.prototype.stopRacing = function() {
 
 //-----EstateCar-----
 function EstateCar() {
-    Vehicle.prototype.constructor.apply(this, arguments);
+    Vehicle.apply(this, arguments);
 } 
 
 EstateCar.prototype = Object.create(Vehicle.prototype);
