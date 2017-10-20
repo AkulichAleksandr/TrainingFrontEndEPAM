@@ -1,0 +1,1 @@
+### Widget was realised using data storage in LocalStorage

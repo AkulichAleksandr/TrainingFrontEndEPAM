@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JS_Task05</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="ak-wrapper">
+    <div class="ak-wrapper__item">
+      <div class="ak-widget">
+
+        <div class="ak-widget__caption">Event name</div>
+        <div class="ak-widget__title">Mel's birthday celebration</div>
+
+        <hr class="ak-widget__delimiter">
+
+        <table class="ak-widget__table">
+          <tbody>
+            <tr>
+              <td class="ak-widget__caption" colspan = "2">From</td>
+            </tr>
+            <tr>
+              <td><input class="ak-widget__dateFrom" type="date" name="dateFrom" value="2017-09-28"></td>
+              <td><input class="ak-widget__timeFrom" type="time" name="timeFrom" value="17:15:00"></td>
+            </tr>
+            <tr>
+              <td class="ak-widget__caution" colspan = "2">Date occurs in the past</td>
+            </tr>
+            <tr>
+              <td class="ak-widget__caption" colspan = "2">To</td>
+            </tr>
+            <tr>
+              <td><input class="ak-widget__dateTo" type="date" name="dateTo" value="2017-09-28"></td>
+              <td><input class="ak-widget__timeTo" type="time" name="timeTo" value="23:15:00"></td>
+            </tr>
+            <tr>
+              <td class="ak-widget__caution" colspan = "2">Date occurs in the past</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="ak-widget__caption">Description</div>
+        <div class="ak-widget__title">Come help celebrate Mel's birthday with dinner, drinks and putt-putt</div>
+
+        <hr class="ak-widget__delimiter">
+
+        <div class="ak-widget__radio">
+          <div class="ak-secect-companion">
+            <div class="ak-secect-companion__caption">With whom to go?</div>
+
+            <div class="ak-secect-companion__title">Choose the companion</div>
+            <ul class="ak-secect-companion__main">
+              <li><input class="ak-secect-companion__item" type="radio" name="companion" value="go with my girlfriend">go with my girlfriend</li>
+              <li><input class="ak-secect-companion__item" type="radio" name="companion" value="go with my friend">go with my friend</li>
+              <li><input class="ak-secect-companion__item" type="radio" name="companion" value="go one" checked="checked">go alone</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="ak-widget__delimiter">
+
+        <div class="ak-widget__select">
+          <div class="ak-select-gift">
+            <div class="ak-select-gift__caption">What to present?</div>
+
+            <div class="ak-select-gift__title">Choose main gift</div>
+
+            <select class="ak-select-gift__main" name="main gift">
+              <option value="purse">purse</option>
+              <option value="watch">watch</option>
+              <option value="certificate">certificate</option>
+              <option value="cash">cash</option>
+            </select>
+
+            <div class="ak-select-gift__title">Choose secondary gift</div>
+
+            <select class="ak-select-gift__second" name="second gift">
+              <option value="champagne">champagne</option>
+              <option value="cake">cake</option>
+              <option value="nothing">nothing</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ak-widget__frame">
+          <a href="frames/FrameDone.html" target="oldFrame"><img class="ak-widget__img" src="img/button.gif"></a>
+          <iframe class="ak-widget__iframe" src="frames/FrameOutput.html" name="oldFrame" width="100px" height="100px"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/scripts.js" type="text/javascript"></script>
+</body>
+
+</html>
