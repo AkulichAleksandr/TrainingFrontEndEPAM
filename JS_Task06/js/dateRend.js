@@ -1,53 +1,49 @@
-function createButton() {
-    //create left button
-    (function createLeftButton() {
-        var parentElem = document.querySelector('.ak-datepicker__head');
-        var div = document.createElement('div');
-        div.className = "ak-datepicker__left-button";
-        div.innerHTML = '&#171;';
-        parentElem.appendChild(div);
-    })();
+function Renderer() {
 
-    //create right button
-    (function createLeftRight() {
-        var parentElem = document.querySelector('.ak-datepicker__head');
-        var div = document.createElement('div');
-        div.className = "ak-datepicker__right-button";
-        div.innerHTML = '&#187;';
-        parentElem.appendChild(div);
-    })();
 }
 
-function dateRenderBody(obj) {
-    //create name of the month and year
-    (function createHead() {
-        var parentElem = document.querySelector('.ak-datepicker__head');
-        var div = document.createElement('div');
-        div.className = "ak-datepicker__month";
-        div.innerHTML = obj.monthAndYear;
-        parentElem.appendChild(div);
-    })();
-
-    //create the list of week days
-    (function createTitle() {
-        var parentElem = document.querySelector('.ak-datepicker__body');
-        var nameOfDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
-        for (var i = 0; i < nameOfDays.length; i++) {
-            var div = document.createElement('div');
-            div.className = "ak-datepicker__title";
-            div.innerHTML = nameOfDays[i];
-            parentElem.appendChild(div);
+Renderer.prototype.create = function (objectOfData, objectOfSettings) {
+    this.element = document.createElement(objectOfSettings.tag);
+    if (objectOfSettings.classes) {
+        for (var i = 0; i < objectOfSettings.classes.length; i++) {
+            this.element.classList.add(objectOfSettings.classes[i]);
         }
-    })();
-
-    //create all days of the month
-    (function createBody() {
-        var parentElem = document.querySelector('.ak-datepicker__body');
-        for (var i = 0; i < obj.arrayOfDate.length; i++) {
-            var div = document.createElement('div');
-            div.className = (obj.arrayOfDate[i] === obj.currentDay) ? "ak-datepicker__days-of-month ak-datepicker__current-day" : "ak-datepicker__days-of-month";
-            div.innerHTML = obj.arrayOfDate[i];
-            parentElem.appendChild(div);
+    }
+    if (objectOfSettings.content) {
+        this.element.innerHTML = objectOfSettings.content;
+    }
+    if (objectOfSettings.property) {
+        this.element.innerHTML = objectOfData[objectOfSettings.property];
+    }
+    if (objectOfSettings.arrayOfElements) {
+        this.element = [];
+        for (var i = 0; i < objectOfData[objectOfSettings.property].length; i++) {
+            this.element.push(document.createElement(objectOfSettings.tag));
+            this.element[i].className = objectOfSettings.classes[0];
+            this.element[i].innerHTML = objectOfData[objectOfSettings.property][i];
+            if (Array.isArray(objectOfData[objectOfSettings.property][i])) {
+                this.element[i].classList.add(objectOfSettings.classes[1]);
+            }
         }
-    })();
+    }
+
+    if (objectOfSettings.event) {
+        this.element.addEventListener(objectOfSettings.event[0], objectOfSettings.event[1])
+    }
+
+    return this.element;
+}
+
+Renderer.prototype.render = function (elem, parentElem) {
+    if (Array.isArray(elem)) {
+        this.currentElem = document.querySelector('.' + parentElem.className);
+        for (var i = 0; i < elem.length; i++) {
+            this.currentElem.appendChild(elem[i]);
+        };
+    } else if (!(Array.isArray(elem)) && (parentElem !== undefined)) {
+        this.currentElem = document.querySelector('.' + parentElem.className);
+        this.currentElem.appendChild(elem);
+    } else {
+        document.body.insertBefore(elem, document.body.children[0]);
+    }
 }
