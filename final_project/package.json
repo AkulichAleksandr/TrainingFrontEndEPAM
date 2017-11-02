@@ -1,0 +1,26 @@
+{
+  "name": "final_project",
+  "version": "0.0.1",
+  "description": "frontend training final project",
+  "main": "entrypoint.js",
+  "scripts": {
+    "dev": "set NODE_ENV=development&&webpack-dev-server",
+    "prod": "set NODE_ENV=production&&webpack"
+  },
+  "author": "akulich",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.0",
+    "env-development": "^1.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
