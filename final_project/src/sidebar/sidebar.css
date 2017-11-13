@@ -1,0 +1,35 @@
+
+.ak-currency-list {
+    overflow: auto;
+}
+.ak-currency-list__container {
+    display: flex;
+    padding: 5px;
+    color: #ddd;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.ak-currency-list__container:hover {
+    background-color: blue;
+}
+.ak-currency-list__name {
+    width: 100px;
+    margin: 5px;
+    padding: 5px;
+}
+.ak-currency-list__rate {
+    margin: 5px;
+    padding: 5px;
+}
+.ak-currency-list__change {
+    width: 60px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.ak-currency-list__change_increase {
+    background-color: green;
+}
+.ak-currency-list__change_decrease {
+    background-color: red;
+}

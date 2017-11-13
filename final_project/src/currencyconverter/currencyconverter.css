@@ -1,0 +1,60 @@
+.ak-converter__title {
+    margin: 6px 0;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    color: #ddd;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
+}
+.ak-converter__item {
+    display: flex;
+    padding: 25px 0 10px 0;
+    color: #ddd;
+    font-size: 20px;
+}
+.ak-converter__cur1 {
+    min-width: 100px;
+    padding-right: 10px;
+}
+.ak-converter__cur2 {
+    min-width: 100px;
+    padding-right: 10px;
+}
+.ak-converter__input-amount {
+    flex: 1 1 300px;
+    height: 30px;
+    padding: 0 0 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px;
+    background-color: #515151;
+    vertical-align: middle;
+    color: #ddd;
+    font-size: 20px;
+}
+.ak-converter__input-amount:focus {
+    background-color: #ddd;
+    outline: none;
+    color: #292929;
+}
+.ak-converter__input-amount::placeholder {
+    color: #ddd;
+}
+.ak-converter__input-cur {
+    height: 30px;
+    padding: 0 0 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 0 10px 10px 0;
+    background-color: #515151;
+    vertical-align: middle;
+    color: #ddd;
+    font-size: 20px;
+}
+.ak-converter__input-cur:focus {
+    background-color: #ddd;
+    outline: none;
+    color: #292929;
+}
+.ak-converter__input-cur::placeholder {
+    color: #ddd;
+}

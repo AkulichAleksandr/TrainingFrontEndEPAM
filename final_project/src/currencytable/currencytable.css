@@ -1,0 +1,28 @@
+.ak-currency-table {
+    font-size: 1em;
+}
+.ak-currency-table__container {
+    height: 90vh;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: 0;
+    overflow: auto;
+    font-size: 1em;
+    border: 2px solid #515151;
+    border-radius: 3px;
+}
+.ak-currency-table__tab {
+    width: 100%;
+}
+.ak-currency-table__date {
+    padding: 10px;
+    border: 2px solid #515151;
+}
+.ak-currency-table__rate {
+    padding: 10px;
+    border: 2px solid #515151;
+}
+.ak-currency-table__title {
+    padding: 10px;
+    border: 2px solid #515151;
+}
