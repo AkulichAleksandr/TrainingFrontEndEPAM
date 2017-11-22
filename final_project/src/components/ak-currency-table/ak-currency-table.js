@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './currencytable.css';
+import './ak-currency-table.css';
 
 export class CurrencyTable extends Component {
     constructor(props) {
@@ -20,8 +20,10 @@ export class CurrencyTable extends Component {
                         {this.props.items.map((item, index) => {
                             return (
                                 <tr key={item.Date}>
-                                    <td className="ak-currency-table__date">{item.Date.slice(0,10)}</td>
-                                    <td className="ak-currency-table__rate">{item.Cur_OfficialRate.toFixed(4)}</td>
+                                    <td className="ak-currency-table__date">
+                                        {item.Date}
+                                    </td>
+                                    <td className="ak-currency-table__rate">{item.Cur_OfficialRate}</td>
                                 </tr>
                             );
                         })}

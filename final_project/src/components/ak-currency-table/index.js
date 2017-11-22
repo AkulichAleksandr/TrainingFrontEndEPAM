@@ -1,0 +1,1 @@
+export { CurrencyTable } from './ak-currency-table';

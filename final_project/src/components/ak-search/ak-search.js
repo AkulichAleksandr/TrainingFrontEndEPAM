@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './search.css';
+import './ak-search.css';
 
 export class Search extends Component {
     constructor(props){
@@ -7,12 +7,7 @@ export class Search extends Component {
         this.curFilter = this.curFilter.bind(this);
     }
     curFilter(event){
-        let curArray = this.props.data.filter((item) => {
-           let curAbbr = item.Abbr.toUpperCase();
-           let inputVal = event.target.value.toUpperCase();
-           return curAbbr.indexOf(inputVal) === 0;
-        });
-        this.props.searchCallback(curArray);
+        this.props.searchCallback(event.target.value);
       }
 
     render() {

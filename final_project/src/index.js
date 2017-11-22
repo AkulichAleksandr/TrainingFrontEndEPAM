@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import {App} from './app.js';
+import { ConnectedApp } from './components/app.js';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+import { Provider } from 'react-redux';
+
+import { appStore } from './store';
+
+ReactDOM.render(
+    <Provider store={appStore}>
+        <ConnectedApp />
+    </Provider>,
+    document.querySelector('#root'));

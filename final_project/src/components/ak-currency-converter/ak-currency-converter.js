@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './currencyconverter.css';
+import './ak-currency-converter.css';
 
 export class CurrencyConverter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cur1Value: undefined,
-            cur2Value: undefined,
-            resultForInput1: undefined,
-            resultForInput2: undefined
+            cur1Value: '',
+            cur2Value: '',
+            resultForInput1: '',
+            resultForInput2: ''
         };
         this.precision = 4;
         this.setCur1Value = this.setCur1Value.bind(this);
@@ -34,21 +34,22 @@ export class CurrencyConverter extends Component {
     calcValueForInput2(event) {
         /* console.log(event.target.value); */
         let res = (event.target.value * this.state.cur1Value / this.state.cur2Value).toFixed(this.precision);
-        this.setState({resultForInput2: res});
+        console.log(res);
+        this.setState({resultForInput2: res, resultForInput1: event.target.value});
     }
 
     calcValueForInput1(event) {
         /* console.log(event.target.value); */
         let res = (event.target.value * this.state.cur2Value / this.state.cur1Value).toFixed(this.precision);
-        this.setState({resultForInput1: res});
+        this.setState({resultForInput1: res, resultForInput2: event.target.value});
     }
 
     eraseField1() {
-        this.setState({resultForInput1: undefined});
+       // this.setState({resultForInput1: ''});
     }
 
     eraseField2() {
-        this.setState({resultForInput2: undefined});
+       // this.setState({resultForInput2: ''});
     }
 
     render() {
@@ -68,13 +69,18 @@ export class CurrencyConverter extends Component {
                             <option></option>
                             {this.props.items.map((item) => {
                                 return (
-                                    <option key={item.Cur_OfficialRate} value={item.Cur_OfficialRate/item.Cur_Scale}>{item.Abbr}</option>
+                                    <option
+                                        key={item.Cur_OfficialRate}
+                                        value={item.Cur_OfficialRate/item.Cur_Scale}>
+                                        {item.Cur_Abbr}
+                                    </option>
                                 );
                                 })
                             }
 
                         </select>
                     </div>
+                    <div className="">{this.state.warning1}</div>
                     <div className="ak-converter__item">
                         <div className="ak-converter__cur2">Currency 2</div>
                         <input className="ak-converter__input-amount" type="text" size="7"
@@ -88,7 +94,11 @@ export class CurrencyConverter extends Component {
                             <option></option>
                             {this.props.items.map((item) => {
                                 return (
-                                    <option key={item.Cur_OfficialRate} value={item.Cur_OfficialRate/item.Cur_Scale}>{item.Abbr}</option>
+                                    <option
+                                        key={item.Cur_OfficialRate}
+                                        value={item.Cur_OfficialRate/item.Cur_Scale}>
+                                        {item.Cur_Abbr}
+                                    </option>
                                 );
                                 })
                             }
