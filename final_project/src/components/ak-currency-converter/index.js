@@ -1,1 +1,0 @@
-export { CurrencyConverter } from './ak-currency-converter';

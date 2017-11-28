@@ -1,0 +1,1 @@
+export { ConnectedNotification } from './ak-notification-wrap';

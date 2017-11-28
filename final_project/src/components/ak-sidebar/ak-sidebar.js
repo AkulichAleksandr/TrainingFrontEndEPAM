@@ -1,21 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ak-sidebar.css';
 
-export class Sidebar extends Component {
+export class Sidebar extends React.Component {
     constructor(props) {
         super(props);
         this.selectCurrency = this.selectCurrency.bind(this);
     }
 
     selectCurrency(event) {
-        this.props.sidebarCallback(event.currentTarget.id);
+        let id = +event.currentTarget.id;
+        let title = event.currentTarget.title;
+        let rate = event.currentTarget.getAttribute('data-rate');
+        let scale = +event.currentTarget.getAttribute('data-scale');
+        this.props.sidebarCallback(id, title, rate, scale);
+        //console.log(this.props.selectedCur);
     }
 
     render() {
         let myArrayOfCur = this.props.selectedCur;
         let myFilt = this.props.FILT;
-        console.log(myFilt);
-        console.log(this.props.searchString);
+        // console.log(myFilt);
+        // console.log(this.props.searchString);
 
         return (
             <div className='ak-currency-list'>
@@ -25,7 +30,11 @@ export class Sidebar extends Component {
                     })
                     .map((item) => {
                         return (
-                            <div className="ak-currency-list__container" key={item.Cur_ID} id={item.Cur_ID} title={item.Cur_Abbr}
+                            <div className="ak-currency-list__container" key={item.Cur_ID}
+                                id={item.Cur_ID}
+                                title={item.Cur_Abbr}
+                                data-rate={item.Cur_OfficialRate}
+                                data-scale={item.Cur_Scale}
                                 onClick={this.selectCurrency}>
                                 <div className="ak-currency-list__name">{item.Cur_Name}</div>
                                 <div className="ak-currency-list__rate">{item.Cur_OfficialRate}</div>

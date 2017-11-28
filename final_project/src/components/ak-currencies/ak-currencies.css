@@ -1,0 +1,19 @@
+.ak-currencies__button {
+    height: 5vh;
+    text-align: right;
+    
+}
+.ak-button {
+    font-size: 16px;
+}
+
+.ak-currencies__datepickers {
+    display: flex;
+    height: 10vh;
+    max-width: 500px;
+    margin-left: auto;
+
+}
+.ak-currencies__datepickers-item {
+    flex: 1 1 50%;
+}

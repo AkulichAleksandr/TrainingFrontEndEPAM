@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
 
-  devtool: "source-map",
+  devtool: 'source-map',
 
   resolve: {
     modules: ['node_modules'],
@@ -41,6 +41,14 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
+      {
+        test: /\.(pdf|gif|png|jpe?g|svg)$/,
+        use: ['file-loader']
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader']
+      }
     ]
   },
 

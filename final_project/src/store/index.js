@@ -6,10 +6,12 @@ import { appReducers } from './reducers';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
+//import {logger1} from './middleware';
+
 
 export const appStore = createStore(
     appReducers,
     composeWithDevTools(
-        applyMiddleware(logger, thunk)
+        applyMiddleware(thunk, logger)
     )
 );

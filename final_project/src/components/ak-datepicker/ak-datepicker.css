@@ -1,0 +1,32 @@
+/* .ak-duration__container {
+    display: flex;
+    height: 10vh;
+    max-width: 500px;
+    margin-left: auto;
+}
+.ak-duration__from {
+    flex: 1 1 50%;
+    text-align: left;
+}
+.ak-duration__to {
+    flex: 1 1 50%;
+    text-align: left;
+} */
+
+
+.ak-datepicker__input {
+    /* height: 30px;
+    padding: 0 0 0 8px; */
+    border: 1px solid #ddd;
+    /* border-radius: 0 10px 10px 0; */
+    /* vertical-align: middle; */
+    font-size: 16px;
+
+    background-color: #515151;
+    color: #ddd;
+    text-align: left;
+}
+
+.ak-datepicker__text{
+    text-align: left;
+}

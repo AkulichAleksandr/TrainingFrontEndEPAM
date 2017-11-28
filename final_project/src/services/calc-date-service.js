@@ -1,24 +1,23 @@
 export class DateService {
-    static getTodayDate() {
-        let year = new Date().toLocaleString('en-US', { year: 'numeric' });
-        let month = new Date().toLocaleString('en-US', { month: 'numeric' });
-        let day = new Date().toLocaleString('en-US', { day: 'numeric' });
+    static parseDate(date) {
+        let year = date.toLocaleString('en-US', { year: 'numeric' });
+        let month = date.toLocaleString('en-US', { month: 'numeric' });
+        let day = date.toLocaleString('en-US', { day: 'numeric' });
         return `${year}-${month}-${day}`;
+    }
+
+    static getTodayDate() {
+        let newDate = new Date();
+        return this.parseDate(newDate);
     }
 
     static getDayBeforeDate() {
         let newDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 1);
-        let year = newDate.toLocaleString('en-US', { year: 'numeric' });
-        let month = newDate.toLocaleString('en-US', { month: 'numeric' });
-        let day = newDate.toLocaleString('en-US', { day: 'numeric' });
-        return `${year}-${month}-${day}`;
+        return this.parseDate(newDate);
     }
 
     static getMonthBeforeDate() {
         let newDate = new Date(new Date().getFullYear(), new Date().getMonth() - 1, new Date().getDate());
-        let year = newDate.toLocaleString('en-US', { year: 'numeric' });
-        let month = newDate.toLocaleString('en-US', { month: 'numeric' });
-        let day = newDate.toLocaleString('en-US', { day: 'numeric' });
-        return `${year}-${month}-${day}`;
+        return this.parseDate(newDate);
     }
 }

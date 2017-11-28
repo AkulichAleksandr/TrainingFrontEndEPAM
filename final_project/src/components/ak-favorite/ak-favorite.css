@@ -1,0 +1,30 @@
+.ak-favorite__container{
+    width: 700px;
+}
+.ak-favorite__label{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    overflow-x: scroll;
+}
+.ak-favorite__label-item {
+    /* flex: 100px 1; */
+    display: flex;
+    min-width: 65px;
+    /* height: 7vh; */
+    /* display: inline; */
+    
+    position: relative;
+    font-size: 16px;
+    border: 1px solid #292929;
+    background-color: #515151;
+}
+.ak-favorite__abbr {
+    padding: 7px;
+}
+.ak-favorite__cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: red;
+}
