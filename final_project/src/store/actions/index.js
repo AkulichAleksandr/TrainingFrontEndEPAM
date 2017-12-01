@@ -9,5 +9,6 @@ export * from './set-destination-value.action';
 export * from './add-cur-to-favorite.action';
 export * from './remove-cur-from-favorite.action';
 export * from './save-cur-movement.action';
+export * from './favorite-cur-movement.action';
 
 export * from './action.types';

@@ -8,12 +8,16 @@
     color: #ddd;
     flex-wrap: nowrap;
     justify-content: space-between;
+    cursor: pointer;
 }
 .ak-currency-list__container:hover {
     background-color: blue;
 }
+.ak-currency-list__container_highlight {
+    background-color: blue;
+}
 .ak-currency-list__name {
-    width: 100px;
+    width: 125px;
     margin: 5px;
     padding: 5px;
 }
@@ -32,4 +36,7 @@
 }
 .ak-currency-list__change_decrease {
     background-color: red;
+}
+.ak-currency-list__icon {
+    color: yellow;
 }

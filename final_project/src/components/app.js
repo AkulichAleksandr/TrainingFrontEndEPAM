@@ -132,7 +132,8 @@ class App extends React.Component {
                             <div className="ak-wrapper__sidebar">
                                 <Sidebar
                                     sidebarCallback={this.updateCurTable}
-                                    selectedCur={this.props.initialArrayOfCur}
+                                    initialArrayOfCur={this.props.initialArrayOfCur}
+                                    selectedCur={this.props.selectedCur}
                                     FILT={this.props.searchString}
                                 />
                             </div>
@@ -158,7 +159,9 @@ const mapStateToProps = (state) => {
     const initialArrayOfCur = state.curList.dataCurList;
     //const MonthArrayOfCurRate = state.curMovement.dataCurMovement;
     const searchString = state.curListFilter.filterCell;
-    return { initialArrayOfCur, searchString };
+    const selectedCur = state.selectedCurInfo;
+    console.log(selectedCur);
+    return { initialArrayOfCur, searchString, selectedCur };
 };
 
 const mapDispatchToProps = (dispatch) => ({

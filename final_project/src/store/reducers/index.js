@@ -11,6 +11,7 @@ import { setDestinationCurInfoReducer } from './set-destination-cur-info.reducer
 import { setDestinationValueReducer } from './set-destination-value.reducer';
 import { changeCurFavoriteReducer } from './change-cur-favorite.reducer';
 import { saveCurMovementReducer } from './save-cur-movement.reducer';
+import { favoriteCurMovementReducer } from './favorite-cur-movement.reducer';
 
 export const appReducers = combineReducers({
     curList: curListReducer,
@@ -22,5 +23,6 @@ export const appReducers = combineReducers({
     destinationCurInfo: setDestinationCurInfoReducer,
     destinationValue: setDestinationValueReducer,
     favoriteCurList: changeCurFavoriteReducer,
-    saveCurMovement: saveCurMovementReducer
+    saveCurMovement: saveCurMovementReducer,
+    favoriteCurMovement: favoriteCurMovementReducer
 });

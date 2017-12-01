@@ -7,6 +7,7 @@ import {CurrencyTable} from './../ak-currency-table';
 
 //action
 import { removeCurFromFavorite } from './../../store/actions';
+import { favoriteCurMovement } from './../../store/actions';
 
 class Favorite extends React.Component {
     constructor(props) {
@@ -22,8 +23,13 @@ class Favorite extends React.Component {
     }
 
     selectFavoriteCurrency(event) {
-        let id = +event.currentTarget.id;
+        let id = event.currentTarget.id;
+        let saveCurMovement = this.props.saveCurMovement;
+        console.log(saveCurMovement[Object.keys(saveCurMovement).filter((item) => item === id)[0]] );
+        let curArrForFavorite = saveCurMovement[Object.keys(saveCurMovement).filter((item) => item === id)[0]];
+
         console.log(id);
+        this.props.favoriteCurMovement(curArrForFavorite);
     }
 
     render() {
@@ -34,7 +40,7 @@ class Favorite extends React.Component {
                         {this.props.favoriteCurList
                             .map((item) => {
                                 return (
-                                    <div className="ak-favorite__label-item" key={item.Cur_ID}
+                                    <div className="ak-favorite__label-item" key={item.Cur_ID} tabIndex="0"
                                         id={item.Cur_ID}
                                         title={item.Cur_Abbr}
                                         onClick={this.selectFavoriteCurrency}>
@@ -49,7 +55,7 @@ class Favorite extends React.Component {
                             })}
                     </div>
                     <div>
-                    <CurrencyTable items={this.props.monthArrayOfCurRate}/>
+                    <CurrencyTable items={this.props.favorCurMov.length === 0? this.props.monthArrayOfCurRate: this.props.favorCurMov}/>
                     </div>
                 </div>
             </div>
@@ -60,13 +66,16 @@ class Favorite extends React.Component {
 const mapStateToProps = (state) => {
     const favoriteCurList = state.favoriteCurList;
     const monthArrayOfCurRate = state.curMovement;
-    //const savedCurMovement = state.savedCurMovement[0]
+    const saveCurMovement = state.saveCurMovement;
+    const favorCurMov = state.favoriteCurMovement;
+    console.log(favoriteCurMovement);
 
-    return { favoriteCurList, monthArrayOfCurRate };
+    return { favoriteCurList, monthArrayOfCurRate, saveCurMovement, favorCurMov };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    removeCurFromFavorite: (param) => dispatch(removeCurFromFavorite(param))
+    removeCurFromFavorite: (param) => dispatch(removeCurFromFavorite(param)),
+    favoriteCurMovement: (param) => dispatch(favoriteCurMovement(param))
 });
 
 export const ConnectedFavorite = connect(mapStateToProps, mapDispatchToProps)(Favorite);

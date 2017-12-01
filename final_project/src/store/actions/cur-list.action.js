@@ -4,7 +4,8 @@ import { GET_CUR_LIST_SEND_REQUEST } from './';
 import { EntityCurListService } from '../../services';
 
 export function downloadCurList() {
-        return (dispatch) => {
+        return (dispatch, getState) => {
+            console.log(getState());
             dispatch({
                 type: GET_CUR_LIST_SEND_REQUEST //'GET_CUR_REQUEST'
             });

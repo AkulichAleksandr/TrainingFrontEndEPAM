@@ -1,10 +1,10 @@
 import React from 'react';
 import './ak-converter.css';
-import {Graph} from './../ak-graph';
+import { Graph } from './../ak-graph';
 
 import { connect } from 'react-redux';
 
-import {ConverterInput} from './../ak-converter-input';
+import { ConverterInput } from './../ak-converter-input';
 
 //actions
 import { setDestinationCurInfo } from './../../store/actions';
@@ -20,8 +20,8 @@ class Converter extends React.Component {
     }
 
     setInputValue(anyParam) {
-        let selectedCur = this.props.selectedCur[0].Cur_OfficialRate/this.props.selectedCur[0].Cur_Scale;
-        let destinationCur = this.props.destinationCur[0].Cur_OfficialRate/this.props.destinationCur[0].Cur_Scale;
+        let selectedCur = this.props.selectedCur[0].Cur_OfficialRate / this.props.selectedCur[0].Cur_Scale;
+        let destinationCur = this.props.destinationCur[0].Cur_OfficialRate / this.props.destinationCur[0].Cur_Scale;
         let res = (anyParam * selectedCur / destinationCur).toFixed(this.precision);
         this.props.setDestinationValue(res);
     }
@@ -39,19 +39,18 @@ class Converter extends React.Component {
         return (
             <div className="ak-converter">
                 <div className="ak-converter__container">
-                <ConverterInput text={'Value'} disabled={true}
-                    items={this.props.selectedCur}
-                    inputCallback={this.setInputValue}
-                    selected={true}
-                />
-                <ConverterInput text={'Destination'} readOnly={true}
-                    items={this.props.initialArrayOfCur}
-                    selectCallback={this.setSelectValue}
-                    destinationValue={this.props.destinationValue}
-                />
-
+                    <ConverterInput text={'Value'} disabled={true}
+                        items={this.props.selectedCur}
+                        inputCallback={this.setInputValue}
+                        value={this.props.selectedCur[0].Cur_ID} //1) pass value for selected value
+                    />
+                    <ConverterInput text={'Destination'} readOnly={true}
+                        items={this.props.initialArrayOfCur}
+                        selectCallback={this.setSelectValue}
+                        destinationValue={this.props.destinationValue}
+                    />
                 </div>
-                    <Graph monthArrayOfCurRate={this.props.monthArrayOfCurRate}/>
+                <Graph monthArrayOfCurRate={this.props.monthArrayOfCurRate} />
             </div>
         );
     }

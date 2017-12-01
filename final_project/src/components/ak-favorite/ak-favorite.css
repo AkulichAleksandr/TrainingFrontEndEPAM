@@ -19,6 +19,11 @@
     border: 1px solid #292929;
     background-color: #515151;
 }
+.ak-favorite__label-item:focus {
+    background-color: #ddd;
+    color: #292929;
+    outline: none;
+}
 .ak-favorite__abbr {
     padding: 7px;
 }

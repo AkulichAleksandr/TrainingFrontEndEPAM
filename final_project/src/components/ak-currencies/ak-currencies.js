@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { Datepicker } from '../ak-datepicker';
 import { CurrencyTable } from '../ak-currency-table';
+import { Graph } from './../ak-graph';
 
 //action
 import { setStartDate } from './../../store/actions';
@@ -58,9 +59,11 @@ class Currencies extends React.Component {
                         <div className="ak-currencies__datepickers-item">
                             <Datepicker changeDateCallback={this.dateToCallback} text={'Date To'} />
                         </div>
+                        <i className="fa fa-refresh ak-currencies__refresh" aria-hidden="true"></i>
                     </div>
                     <div className="">
-                        <CurrencyTable items={this.props.monthArrayOfCurRate} curTitle={this.props.curTitle} />
+                        {/* <CurrencyTable items={this.props.monthArrayOfCurRate} curTitle={this.props.curTitle} /> */}
+                        <Graph monthArrayOfCurRate={this.props.monthArrayOfCurRate} />
                     </div>
                 </div>
             </div>
