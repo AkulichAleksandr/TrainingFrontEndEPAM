@@ -1,1 +1,1 @@
-export { Search } from './ak-search';
+export { ConnectedSearch } from './ak-search-wrap';

@@ -10,5 +10,8 @@ export * from './add-cur-to-favorite.action';
 export * from './remove-cur-from-favorite.action';
 export * from './save-cur-movement.action';
 export * from './favorite-cur-movement.action';
+export * from './favorite-cur-info.action';
+export * from './remove-cur-info-from-favorite.action';
+export * from './remove-cur-movement-from-favorite.action';
 
 export * from './action.types';

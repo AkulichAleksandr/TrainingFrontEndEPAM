@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ak-search.css';
 
-export class Search extends Component {
+export class Search extends React.Component {
     constructor(props){
         super(props);
         this.curFilter = this.curFilter.bind(this);

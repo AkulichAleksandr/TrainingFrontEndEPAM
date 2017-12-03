@@ -5,6 +5,7 @@ export class Sidebar extends React.Component {
     constructor(props) {
         super(props);
         this.selectCurrency = this.selectCurrency.bind(this);
+        this.checkIcon = this.checkIcon.bind(this);
     }
 
     selectCurrency(event) {
@@ -12,15 +13,18 @@ export class Sidebar extends React.Component {
         let title = event.currentTarget.title;
         let rate = event.currentTarget.getAttribute('data-rate');
         let scale = +event.currentTarget.getAttribute('data-scale');
-        this.props.sidebarCallback(id, title, rate, scale);
-        //console.log(this.props.selectedCur);
+        this.props.setSelectedCurInfo(id, title, rate, scale);
+        this.props.downloadCurMovement(id);
+    }
+
+    checkIcon (iconAbbt) {
+        let arr = ['usd', 'eur', 'jpy', 'cny', 'rub', 'try', 'gbp'];
+        return arr.some((item) => item === iconAbbt)? true: false;
     }
 
     render() {
         let myArrayOfCur = this.props.initialArrayOfCur;
-        let myFilt = this.props.FILT;
-        // console.log(myFilt);
-        // console.log(this.props.searchString);
+        let myFilt = this.props.searchString;
 
         return (
             <div className='ak-currency-list'>
@@ -31,21 +35,15 @@ export class Sidebar extends React.Component {
                     .map((item) => {
                         return (
                             <div className={item.Cur_ID === this.props.selectedCur[0].Cur_ID?
-                                "ak-currency-list__container ak-currency-list__container_highlight":
-                                "ak-currency-list__container"} key={item.Cur_ID}
+                                'ak-currency-list__container ak-currency-list__container_highlight':
+                                'ak-currency-list__container'} key={item.Cur_ID}
                                 id={item.Cur_ID}
                                 title={item.Cur_Abbr}
                                 data-rate={item.Cur_OfficialRate}
                                 data-scale={item.Cur_Scale}
                                 onClick={this.selectCurrency}>
                                 <div className="ak-currency-list__name">
-                                    {item.Cur_Abbr.toLowerCase() === 'usd' ||
-                                     item.Cur_Abbr.toLowerCase() === 'eur' ||
-                                     item.Cur_Abbr.toLowerCase() === 'jpy' ||
-                                     item.Cur_Abbr.toLowerCase() === 'cny' ||
-                                     item.Cur_Abbr.toLowerCase() === 'rub' ||
-                                     item.Cur_Abbr.toLowerCase() === 'try' ||
-                                     item.Cur_Abbr.toLowerCase() === 'gbp'?
+                                    {this.checkIcon(item.Cur_Abbr.toLowerCase())?
                                       <i className={`fa fa-${item.Cur_Abbr.toLowerCase()} ak-currency-list__icon`}
                                         aria-hidden="true">
                                       </i>:

@@ -1,1 +1,1 @@
-export { About } from './ak-about';
+export { ConnectedAbout } from './ak-about-wrap';

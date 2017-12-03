@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import { ConnectedApp } from './components/app.js';
+import { ConnectedApp } from './components/app-wrap.js';
 
 import { Provider } from 'react-redux';
 

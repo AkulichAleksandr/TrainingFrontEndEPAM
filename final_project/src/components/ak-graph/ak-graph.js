@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './ak-graph.css';
 
 import { Chart } from 'chart.js';
@@ -23,10 +22,18 @@ export class Graph extends React.Component {
         );
     }
 
-
-    componentDidUpdate() {
+    componentDidMount() {
         if (this.canvas && this.props.monthArrayOfCurRate && this.props.monthArrayOfCurRate.length > 0) {
             this.renderChart(this.canvas, this.props.monthArrayOfCurRate);
+        }
+    }
+
+
+    componentDidUpdate() {
+        this.renderChart(this.canvas, this.props.monthArrayOfCurRate);
+
+        if(this.props.monthArrayOfCurRate.length === 0) {
+            this.myChart.destroy();
         }
     }
 
@@ -37,8 +44,6 @@ export class Graph extends React.Component {
 
         let axisX = curData.map((item) => item.Date);
         let axisY = curData.map((item) => +item.Cur_OfficialRate);
-        // console.log(axisX);
-        // console.log(axisY);
 
         let minY = Math.min(...axisY);
         let maxY = Math.max(...axisY);
@@ -54,15 +59,21 @@ export class Graph extends React.Component {
                 datasets: [{
                     label: 'Currency graph',
                     data: axisY,
-                    backgroundColor: ['#ddd'],
+                    backgroundColor: '#ddd',
                     borderWidth: 1
                 }]
             },
             options: {
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: '#ddd'
+                    }
+                },
                 scales: {
                     yAxes: [{
-                        stacked: true,
                         ticks: {
+                            fontColor: '#ddd',
                             min: minY - borderValue * rangeY,
                             max: maxY + borderValue * rangeY,
                             maxTicksLimit: 5
@@ -70,11 +81,17 @@ export class Graph extends React.Component {
                         scaleLabel:{
                             display:false
                           }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: '#ddd'
+                        },
+                        scaleLabel:{
+                            display:false
+                        }
                     }]
                 }
             }
         });
-        // this.myChart.update();
     }
-
 }

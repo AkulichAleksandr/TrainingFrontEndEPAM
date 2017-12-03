@@ -1,1 +1,1 @@
-export { Sidebar } from './ak-sidebar';
+export { ConnectedSidebar } from './ak-sidebar-wrap';

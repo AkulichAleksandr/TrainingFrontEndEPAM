@@ -1,12 +1,14 @@
-//import { GET_FILTER_CELL } from './';
+import { SET_END_DATE } from './';
 
 export function setEndDate(anyParam) {
     let payload = new Date(anyParam);
-    if (+payload >= Date.now() || +payload <= +new Date(2016, 6, 1) || isNaN(+payload)) {
+    let minYear = 2016, minMonth = 6, minDay = 1;
+
+    if (+payload >= Date.now() || +payload <= +new Date(minYear, minMonth, minDay) || isNaN(+payload)) {
         payload = '';
     }
     return {
-        type: 'SET_END_DATE',
+        type: SET_END_DATE,
         payload
     };
 }

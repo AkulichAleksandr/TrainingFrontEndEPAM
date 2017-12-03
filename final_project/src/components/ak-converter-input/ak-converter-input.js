@@ -11,12 +11,10 @@ export class ConverterInput extends React.Component {
     }
 
     inputOnChange(event) {
-        console.log(event.currentTarget.value);
         this.props.inputCallback(event.currentTarget.value);
     }
 
     selectOnChange(event) {
-        console.log(event.currentTarget.value);
         this.props.selectCallback(event.currentTarget.value);
     }
 
@@ -44,14 +42,16 @@ export class ConverterInput extends React.Component {
                     <select className="ak-converter-input__currency"
                         disabled={this.props.disabled}
                         onChange={this.selectOnChange}
-                        value={this.props.value} //2) take value from ak-converter
+                        //2) take value from ak-converter
+                        value={this.props.value}
                     >
                         <option></option>
                         {this.props.items.map((item) => {
                             return (
                                 <option
                                     key={item.Cur_OfficialRate}
-                                    value={item.Cur_ID} //3) set value instead of selected
+                                //3) set value instead of property 'selected'
+                                    value={item.Cur_ID}
                                     title={item.Cur_Abbr}>
                                     {item.Cur_Abbr}
                                 </option>

@@ -4,7 +4,7 @@ import { CurListEntity } from './cur-list.entity.dto';
 
 export class EntityCurListService {
     static getCurList() {
-        const baseURL = 'http://www.nbrb.by/API/ExRates/Rates';
+        const baseURL = 'https://www.nbrb.by/API/ExRates/Rates';
         let yesterdayLink = `${baseURL}?onDate=${DateService.getDayBeforeDate()}&Periodicity=0`;
         let todayLink = `${baseURL}?onDate=${DateService.getTodayDate()}&Periodicity=0`;
         let makeRequest = () => {

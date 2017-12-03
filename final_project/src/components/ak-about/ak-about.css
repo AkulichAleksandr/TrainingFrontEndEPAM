@@ -1,0 +1,12 @@
+.ak-about__container{
+    width: 80%;
+    margin: 150px auto;
+    font-size: 24px;
+    color: #ddd;
+}
+.ak-about__container a{
+    color: #ddd;
+}
+.ak-about__line {
+    padding: 10px 0;
+}

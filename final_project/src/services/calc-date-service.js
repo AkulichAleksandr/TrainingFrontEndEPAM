@@ -12,12 +12,14 @@ export class DateService {
     }
 
     static getDayBeforeDate() {
-        let newDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - 1);
+        let oneDay = 1;
+        let newDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() - oneDay);
         return this.parseDate(newDate);
     }
 
     static getMonthBeforeDate() {
-        let newDate = new Date(new Date().getFullYear(), new Date().getMonth() - 1, new Date().getDate());
+        let oneMonth = 1;
+        let newDate = new Date(new Date().getFullYear(), new Date().getMonth() - oneMonth, new Date().getDate());
         return this.parseDate(newDate);
     }
 }

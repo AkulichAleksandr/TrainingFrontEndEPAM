@@ -1,1 +1,1 @@
-export { ConnectedFavorite } from './ak-favorite';
+export { ConnectedFavorite } from './ak-favorite-wrap';

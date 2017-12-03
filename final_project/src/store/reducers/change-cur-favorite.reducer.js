@@ -1,23 +1,17 @@
-//import { GET_FILTER_CELL } from '../actions';
+import { ADD_CUR_TO_FAVORITE } from '../actions';
+import { REMOVE_CUR_FROM_FAVORITE } from '../actions';
 
 const initialState = [];
 
 export function changeCurFavoriteReducer(state = initialState, action) {
     switch (action.type) {
-        case 'ADD_CUR_TO_FAVORITE': //'FILTERED'
-            console.log(action.payload);
-            console.log(state);
-            //(state.some((item) => item.Cur_ID === action.payload))
+        case ADD_CUR_TO_FAVORITE:
             return [...state, ...action.payload];
-        case 'REMOVE_CUR_TO_FAVORITE': //'FILTERED'
 
-            let a = state.filter((item) => {
-               console.log(item.Cur_ID === action.payload);
-               //console.log(item.Cur_ID);
-               return item.Cur_ID !== action.payload;
-            });
-           console.log(a);
-            return a;
+        case REMOVE_CUR_FROM_FAVORITE:
+            let newState = state.filter((item) => item.Cur_ID !== action.payload);
+            return newState;
+
         default:
             return state;
     }

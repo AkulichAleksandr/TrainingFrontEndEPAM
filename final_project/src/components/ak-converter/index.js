@@ -1,1 +1,1 @@
-export { ConnectedConverter } from './ak-converter';
+export { ConnectedConverter } from './ak-converter-wrap';

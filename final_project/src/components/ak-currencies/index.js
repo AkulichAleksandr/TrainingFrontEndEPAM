@@ -1,1 +1,1 @@
-export { ConnectedCurrencies } from './ak-currencies';
+export { ConnectedCurrencies } from './ak-currencies-wrap';

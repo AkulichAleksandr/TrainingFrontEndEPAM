@@ -5,7 +5,7 @@ import { CurMovementEntity } from './cur-movement.entity.dto';
 export class EntityCurMovementService {
     static getCurDynamics(Cur_ID, startDate, endDate) {
 
-        const baseURL = 'http://www.nbrb.by/API/ExRates/Rates';
+        const baseURL = 'https://www.nbrb.by/API/ExRates/Rates';
         let initStartDate = DateService.getMonthBeforeDate();
         let initEndtDate = DateService.getTodayDate();
 

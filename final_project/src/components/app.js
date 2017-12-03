@@ -1,24 +1,14 @@
-'use strict';
 import React from 'react';
-
-import { connect } from 'react-redux';
-
 import './app.css';
 
-import { Sidebar } from './ak-sidebar';
-import { Search } from './ak-search';
-import { Nav } from './ak-nav';
-import { CurrencyTable } from './ak-currency-table';
-//import { CurrencyConverter } from './ak-currency-converter';
-//import { Converter } from './ak-converter';
+import { ConnectedNav } from './ak-nav';
 import { ConnectedConverter } from './ak-converter';
-
-import { About } from './ak-about';
+import { ConnectedAbout } from './ak-about';
 import { ConnectedFavorite } from './ak-favorite';
 import { ConnectedCurrencies } from './ak-currencies';
-
-//import { EntityCurListService } from '../services'; //+
-//import { EntityCurMovementService } from '../services'; //+
+import { ConnectedSearch } from './ak-search';
+import { ConnectedSidebar } from './ak-sidebar';
+import { Blank } from './ak-blank';
 
 import {
     HashRouter as Router,
@@ -27,50 +17,16 @@ import {
     Switch
 } from 'react-router-dom';
 
-//actions
-import { downloadCurList } from './../store/actions';
-import { downloadCurMovement } from './../store/actions';
-import { curListFilter } from './../store/actions';
-import { setSelectedCurInfo } from './../store/actions';
-
-import { appStore } from './../store';
-
-class App extends React.Component {
+export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.updateCurList = this.updateCurList.bind(this);
-        this.updateCurTable = this.updateCurTable.bind(this);
     }
 
     componentWillMount() {
         this.props.downloadCurList();
     }
 
-    updateCurTable(curId, curTitle, curRate, curScale) {
-        let startDate = appStore.getState().startDate;
-        let endDate = appStore.getState().endDate;
-        //console.log(a);
-        this.props.downloadCurMovement(curId, startDate, endDate);
-        this.props.setSelectedCurInfo(curId, curTitle, curRate, curScale);
-        console.log(curId);
-        console.log(curTitle);
-    }
-
-    updateCurList(data) {
-        this.props.curListFilter(data);
-    }
-
     render() {
-        // const MonthArrayOfCurRate = this.props.MonthArrayOfCurRate;
-        // const WrappedCurrencyTable = function (props) {
-        //     return <CurrencyTable {...props} items={MonthArrayOfCurRate} />;
-        // };
-
-        // const initialArrayOfCur = this.props.initialArrayOfCur;
-        // const WrappedConverter = function (props) {
-        //     return <Converter {...props} items={initialArrayOfCur} />;
-        // };
-
         return (
             <Router>
                 <Switch>
@@ -82,13 +38,13 @@ class App extends React.Component {
                                         <div className="ak-header__search">
                                         </div>
                                         <div className="ak-header__menu">
-                                            <Nav />
+                                            <ConnectedNav />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="ak-wrapper__main">
-                                <About />
+                                <ConnectedAbout />
                             </div>
                         </div>
                     </Route>
@@ -101,7 +57,7 @@ class App extends React.Component {
                                         <div className="ak-header__search">
                                         </div>
                                         <div className="ak-header__menu">
-                                            <Nav />
+                                            <ConnectedNav />
                                         </div>
                                     </div>
                                 </div>
@@ -118,35 +74,22 @@ class App extends React.Component {
                                 <div className="ak-header">
                                     <div className="ak-header__container">
                                         <div className="ak-header__search">
-                                            <Search
-                                                searchCallback={this.updateCurList}
-                                                data={this.props.initialArrayOfCur}
-                                            />
+                                            <ConnectedSearch />
                                         </div>
                                         <div className="ak-header__menu">
-                                            <Nav />
+                                            <ConnectedNav />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="ak-wrapper__sidebar">
-                                <Sidebar
-                                    sidebarCallback={this.updateCurTable}
-                                    initialArrayOfCur={this.props.initialArrayOfCur}
-                                    selectedCur={this.props.selectedCur}
-                                    FILT={this.props.searchString}
-                                />
+                                <ConnectedSidebar />
                             </div>
+                            {this.props.selectedCurInfo === ''? <Blank />:
                             <div className="ak-wrapper__main">
-                                <Route exact path={'/'} render={() => {
-                                    return <div className="ak-wrapper__start-page">
-                                        Hi! You can use currency converter or look through currency rate for the last month
-                                    </div>;
-                                }}>
-                                </Route>
-                                <Route path={'/currencies'} component={ConnectedCurrencies}></Route>
+                                <Route exact path={'/'} component={ConnectedCurrencies}></Route>
                                 <Route path={'/calculator'} component={ConnectedConverter}></Route>
-                            </div>
+                            </div>}
                         </div>
                     </Route>
                 </Switch>
@@ -154,21 +97,3 @@ class App extends React.Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    const initialArrayOfCur = state.curList.dataCurList;
-    //const MonthArrayOfCurRate = state.curMovement.dataCurMovement;
-    const searchString = state.curListFilter.filterCell;
-    const selectedCur = state.selectedCurInfo;
-    console.log(selectedCur);
-    return { initialArrayOfCur, searchString, selectedCur };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-    downloadCurList: (param) => dispatch(downloadCurList(param)),
-    downloadCurMovement: (curId, startDate, endDate) => dispatch(downloadCurMovement(curId, startDate, endDate)),
-    curListFilter: (param) => dispatch(curListFilter(param)),
-    setSelectedCurInfo: (...param) => dispatch(setSelectedCurInfo(...param))
-});
-
-export const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);

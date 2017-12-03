@@ -1,19 +1,10 @@
 import React from 'react';
 import './ak-currencies.css';
 
-import { connect } from 'react-redux';
-
 import { Datepicker } from '../ak-datepicker';
-import { CurrencyTable } from '../ak-currency-table';
 import { Graph } from './../ak-graph';
 
-//action
-import { setStartDate } from './../../store/actions';
-import { setEndDate } from './../../store/actions';
-import { addCurToFavorite } from './../../store/actions';
-import { saveCurMovement } from './../../store/actions';
-
-class Currencies extends React.Component {
+export class Currencies extends React.Component {
     constructor(props) {
         super(props);
 
@@ -24,25 +15,17 @@ class Currencies extends React.Component {
 
     dateFromCallback(anyParam) {
         this.props.setStartDate(anyParam);
+        this.props.downloadCurMovement();
     }
 
     dateToCallback(anyParam) {
         this.props.setEndDate(anyParam);
+        this.props.downloadCurMovement();
     }
 
     addToFavorite() {
-        let selectedCur = this.props.selectedCur;
-        let favoriteCurList = this.props.favoriteCurList;
-        let monthArrayOfCurRate = this.props.monthArrayOfCurRate;
-        console.log(monthArrayOfCurRate);
-        // console.log(selectedCur);
-        // console.log(favoriteCurList);
-        // console.log(!favoriteCurList.some((item) => item.Cur_ID === selectedCur[0].Cur_ID) );
-        // //console.log(favoriteCurList.length === 0);
-        if (!favoriteCurList.some((item) => item.Cur_ID === selectedCur[0].Cur_ID) && selectedCur[0].Cur_ID !== '' ) {
-            this.props.addCurToFavorite(selectedCur);
-            this.props.saveCurMovement(selectedCur, monthArrayOfCurRate);
-        }
+        this.props.addCurToFavorite();
+        this.props.saveCurMovement();
     }
 
     render() {
@@ -59,10 +42,8 @@ class Currencies extends React.Component {
                         <div className="ak-currencies__datepickers-item">
                             <Datepicker changeDateCallback={this.dateToCallback} text={'Date To'} />
                         </div>
-                        <i className="fa fa-refresh ak-currencies__refresh" aria-hidden="true"></i>
                     </div>
-                    <div className="">
-                        {/* <CurrencyTable items={this.props.monthArrayOfCurRate} curTitle={this.props.curTitle} /> */}
+                    <div className="ak-currencies__graph">
                         <Graph monthArrayOfCurRate={this.props.monthArrayOfCurRate} />
                     </div>
                 </div>
@@ -70,24 +51,3 @@ class Currencies extends React.Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    //const initialArrayOfCur = state.curList.dataCurList;
-    const monthArrayOfCurRate = state.curMovement;
-    const curTitle = state.selectedCurInfo[0].Cur_Abbr;
-    const selectedCur = state.selectedCurInfo;
-    const favoriteCurList = state.favoriteCurList;
-    return { monthArrayOfCurRate, curTitle, selectedCur, favoriteCurList };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-    // downloadCurList: (param) => dispatch(downloadCurList(param)),
-    // downloadCurMovement: (param) => dispatch(downloadCurMovement(param)),
-    // curListFilter: (param) => dispatch(curListFilter(param))
-    setStartDate: (param) => dispatch(setStartDate(param)),
-    setEndDate: (param) => dispatch(setEndDate(param)),
-    addCurToFavorite: (param) => dispatch(addCurToFavorite(param)),
-    saveCurMovement: (...param) => dispatch(saveCurMovement(...param))
-});
-
-export const ConnectedCurrencies = connect(mapStateToProps, mapDispatchToProps)(Currencies);

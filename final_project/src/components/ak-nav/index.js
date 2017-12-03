@@ -1,1 +1,1 @@
-export { Nav } from './ak-nav';
+export { ConnectedNav } from './ak-nav-wrap';

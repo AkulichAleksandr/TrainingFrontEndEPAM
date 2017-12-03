@@ -1,9 +1,8 @@
-//import { GET_FILTER_CELL } from './';
+import { REMOVE_CUR_FROM_FAVORITE } from './';
 
 export function removeCurFromFavorite(payload) {
-    //console.log(payload);
     return {
-        type: 'REMOVE_CUR_TO_FAVORITE', //'FILTERED'
+        type: REMOVE_CUR_FROM_FAVORITE,
         payload
     };
 }

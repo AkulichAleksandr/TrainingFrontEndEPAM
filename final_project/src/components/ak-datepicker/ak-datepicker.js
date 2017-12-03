@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ak-datepicker.css';
 
-export class Datepicker extends Component {
+export class Datepicker extends React.Component {
     constructor(props) {
         super(props);
         this.changeDate = this.changeDate.bind(this);
     }
 
     changeDate(event) {
-        //console.log(event.currentTarget.value);
         this.props.changeDateCallback(event.currentTarget.value);
     }
 

@@ -9,7 +9,9 @@ export class Notification extends React.Component {
     render() {
         return (
             <span className="ak-notification">
-                {this.props.notificationCounter === 0? '': this.props.notificationCounter <= 9? this.props.notificationCounter: '9+'}
+                {this.props.notificationCounter === 0? '':
+                this.props.notificationCounter <= 9?
+                this.props.notificationCounter: '9+'}
             </span>
         );
     }

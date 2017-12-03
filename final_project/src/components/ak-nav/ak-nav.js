@@ -19,7 +19,7 @@ export class Nav extends React.Component {
             <Router>
                 <div className="ak-nav">
                     <ul className="ak-nav__container">
-                        <li className="ak-nav__line"><NavLink to="/currencies">Currencies</NavLink></li>
+                        <li className="ak-nav__line"><NavLink to="/">Currencies</NavLink></li>
                         <li className="ak-nav__line"><NavLink to="/calculator">Calculator</NavLink></li>
                         <li className="ak-nav__line"><NavLink to="/about">About</NavLink></li>
                         <li className="ak-nav__line"><NavLink to="/favorite">Favorite</NavLink>&#160;<ConnectedNotification /></li>
